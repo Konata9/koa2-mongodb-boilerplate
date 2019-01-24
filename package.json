@@ -1,0 +1,22 @@
+{
+  "name": "simple-knowledgebase-server",
+  "version": "1.0.0",
+  "description": "backend with koa2 & mongodb",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Konata9/simple-knowledgebase-server.git"
+  },
+  "author": "Konata9",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Konata9/simple-knowledgebase-server/issues"
+  },
+  "homepage": "https://github.com/Konata9/simple-knowledgebase-server#readme",
+  "dependencies": {
+    "koa": "^2.6.2"
+  }
+}
