@@ -1,4 +1,7 @@
+const responseLogger = require("./../config/log4js").getLogger("response");
+
 const userLogin = async (ctx, next) => {
+  responseLogger.info(ctx);
   ctx.body = {
     code: 200,
     message: "hello from login"
@@ -6,6 +9,7 @@ const userLogin = async (ctx, next) => {
 };
 
 const loginCheck = async (ctx, next) => {
+  responseLogger.info(ctx);
   ctx.body = {
     code: 200,
     message: "hello from login check"
