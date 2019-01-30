@@ -1,4 +1,4 @@
-const UserInfo = require("./../models/Schemas/UserInfo");
+const UserInfo = require("../Schemas/UserInfo");
 const { errorLogger } = require("./../utils/log4js");
 
 const userInsert = (userInfo) => {
