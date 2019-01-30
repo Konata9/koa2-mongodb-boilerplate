@@ -11,17 +11,20 @@ log4js.configure({
     access: {
       type: "dateFile",
       pattern: ".yyyy-MM-dd.log",
-      filename: combineFilePath("./../logs/access", "access.log")
+      alwaysIncludePattern: true,
+      filename: combineFilePath("./../logs/access", "access")
     },
     response: {
       type: "dateFile",
-      pattern: ".yyyy-MM-dd",
-      filename: combineFilePath("./../logs/response", "response.log")
+      pattern: ".yyyy-MM-dd.log",
+      alwaysIncludePattern: true,
+      filename: combineFilePath("./../logs/response", "response")
     },
     error: {
       type: "dateFile",
-      pattern: ".yyyy-MM-dd",
-      filename: combineFilePath("./../logs/errors", "error.log")
+      pattern: ".yyyy-MM-dd.log",
+      alwaysIncludePattern: true,
+      filename: combineFilePath("./../logs/errors", "error")
     },
     out: {
       type: "console"
@@ -44,7 +47,12 @@ log4js.configure({
       appenders: ["out"],
       level: "info"
     }
-  }
+  },
+  replaceConsole: true
 });
 
-module.exports = log4js;
+module.exports = {
+  accessLogger: log4js.getLogger("access"),
+  errorLogger: log4js.getLogger("error"),
+  responseLogger: log4js.getLogger("response")
+};

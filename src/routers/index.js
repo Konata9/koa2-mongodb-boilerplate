@@ -1,12 +1,8 @@
-const log4js = require("./../config/log4js");
+const { responseLogger, errorLogger } = require("./../utils/log4js");
+
 const router = require("koa-router")({
   prefix: "/api"
 });
-
-const [responseLogger, errorLogger] = [
-  log4js.getLogger("response"),
-  log4js.getLogger("error")
-];
 
 const login = require("./login");
 
@@ -15,7 +11,7 @@ router.get("/", async (ctx, next) => {
   ctx.body = "hello from root";
 });
 
-router.get("/login", login.userLogin);
-router.get("/loginCheck", login.loginCheck);
+router.post("/users/create", login.createUser);
+router.get("/users/list", login.fetchUserList);
 
 module.exports = router;

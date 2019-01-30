@@ -1,11 +1,9 @@
 const Koa = require("koa");
-const log4js = require("./config/log4js");
+const accessLogger = require("./utils/log4js").accessLogger;
 const bodyPaser = require("koa-bodyparser");
 const config = require("./config");
 const routers = require("./routers");
 const app = new Koa();
-
-const accessLogger = log4js.getLogger("access");
 
 const START_INFO = `Start server and listen to the port ${config.PORT}`;
 
