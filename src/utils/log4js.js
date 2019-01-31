@@ -26,6 +26,9 @@ log4js.configure({
       alwaysIncludePattern: true,
       filename: combineFilePath("./../logs/errors", "error")
     },
+    warn: {
+      type: "console"
+    },
     out: {
       type: "console"
     }
@@ -43,6 +46,10 @@ log4js.configure({
       appenders: ["error"],
       level: "error"
     },
+    warn: {
+      appenders: ["warn"],
+      level: "warn"
+    },
     default: {
       appenders: ["out"],
       level: "info"
@@ -54,5 +61,6 @@ log4js.configure({
 module.exports = {
   accessLogger: log4js.getLogger("access"),
   errorLogger: log4js.getLogger("error"),
-  responseLogger: log4js.getLogger("response")
+  responseLogger: log4js.getLogger("response"),
+  warnLogger: log4js.getLogger("warn")
 };
