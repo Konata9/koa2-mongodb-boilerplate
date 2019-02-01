@@ -4,6 +4,7 @@ const cors = () => {
   return async (ctx, next) => {
     warnLogger.warn("You are setting CORS head");
     ctx.set("Access-Control-Allow-Origin", "*");
+    ctx.set("Access-Control-Allow-Methods", "*");
     await next();
   };
 };
