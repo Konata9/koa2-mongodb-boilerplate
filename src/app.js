@@ -1,6 +1,7 @@
 const Koa = require("koa");
 const { accessLogger } = require("./utils/log4js");
 const bodyPaser = require("koa-bodyparser");
+const jwt = require("koa-jwt");
 const config = require("./config");
 const routers = require("./routers");
 const cors = require("./utils/cors");
