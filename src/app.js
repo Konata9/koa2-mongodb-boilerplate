@@ -5,6 +5,7 @@ const jwt = require("koa-jwt");
 const config = require("./config");
 const routers = require("./routers");
 const cors = require("./utils/cors");
+const authCheck = require("./utils/authCheck");
 const app = new Koa();
 
 const START_INFO = `Start server and listen to the port ${config.PORT}`;
@@ -12,6 +13,14 @@ const START_INFO = `Start server and listen to the port ${config.PORT}`;
 app.use(bodyPaser());
 
 app.use(cors());
+
+app.use(authCheck());
+
+app.use(
+  jwt({
+    secret: "sapmle_secret"
+  })
+);
 
 app.use(routers.routes());
 
